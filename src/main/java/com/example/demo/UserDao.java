@@ -2,5 +2,5 @@ package com.example.demo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserDao extends JpaRepository<TUser, Long> {
+public interface UserDao extends JpaRepository<TUser, LoadKey> {
 }

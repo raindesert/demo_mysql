@@ -1,34 +1,19 @@
 package com.example.demo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="t_user")
 public class TUser {
-    @Id
-    @Column(name = "user_id")
-    private Long userId;
+    @EmbeddedId
+    LoadKey loadKey;
 
-    @Column(name = "user_name")
-    private String userName;
-
-    public Long getUserId() {
-        return userId;
+    public LoadKey getLoadKey() {
+        return loadKey;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setLoadKey(LoadKey loadKey) {
+        this.loadKey = loadKey;
     }
 
     public String getPassword() {

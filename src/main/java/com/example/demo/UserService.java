@@ -23,14 +23,15 @@ public class UserService {
     }
 
     public TUser saveUser(TUser user) {
+        user.setLoadKey(new LoadKey(user.getLoadKey().getUserId(), user.getLoadKey().getUserName()));
         return userDao.save(user);
     }
 
-    public void deleteUser(Long id) {
-        userDao.deleteById(id);
+    public void deleteUser(Long id,String userName) {
+        userDao.deleteById(new LoadKey(id,userName));
     }
 
-    public Optional<TUser> loadUser(Long id){
+    public Optional<TUser> loadUser(LoadKey id){
         return userDao.findById(id);
     }
     public List<TUser> findAll() {

@@ -32,11 +32,11 @@ public class UserController {
 
     @PostMapping("/load")
     public Optional<TUser> loadUser(@RequestBody LoadKey key) {
-        return userService.loadUser(key.getUserId());
+        return userService.loadUser(key);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+    @DeleteMapping("/{id}/{name}")
+    public void deleteUser(@PathVariable Long id, @PathVariable String name) {
+        userService.deleteUser(id,name);
     }
 }
