@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -16,12 +17,22 @@ public class UserController {
 
     @GetMapping
     public List<TUser> getAllUsers() {
-        return userService.findAllUsers();
+        return userService.findAll();
     }
 
-    @PostMapping
+    @GetMapping("/cnt")
+    public Long getCnt() {
+        return userService.getCnt();
+    }
+
+    @PostMapping("/create")
     public TUser createUser(@RequestBody TUser user) {
         return userService.saveUser(user);
+    }
+
+    @PostMapping("/load")
+    public Optional<TUser> loadUser(@RequestBody LoadKey key) {
+        return userService.loadUser(key.getUserId());
     }
 
     @DeleteMapping("/{id}")
