@@ -13,6 +13,9 @@ public class LoadKey implements Serializable {
 
     }
     public LoadKey(Long userId, String userName){
+        if (userId == null) {
+            throw new IllegalArgumentException("UserId cannot be null");
+        }
         this.userId = userId;
         this.userName= userName;
     }
@@ -29,6 +32,9 @@ public class LoadKey implements Serializable {
     }
 
     public void setUserId(Long userId) {
+        if (userId == null) {
+            throw new IllegalArgumentException("UserId cannot be null");
+        }
         this.userId = userId;
     }
 
