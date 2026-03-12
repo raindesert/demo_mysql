@@ -26,4 +26,15 @@ public class TUser {
 
     @Column(name="password")
     private String password;
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    @Column(name="job")
+    private String job;
 }
